@@ -11,6 +11,9 @@ export default defineConfig((): UserConfig => {
         "Cache-Control": "public, max-age=0",
       },
     },
+    define: {
+      'process.env': JSON.stringify(process.env)
+    },
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",
