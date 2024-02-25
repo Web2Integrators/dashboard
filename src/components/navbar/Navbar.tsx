@@ -5,10 +5,14 @@ import { SideMenu } from "./side-menu";
 import { ThemeToggle } from "qwik-theme-toggle";
 import { HiBars3Solid } from "@qwikest/icons/heroicons";
 import { LuRocket } from "@qwikest/icons/lucide";
+import { useAppState } from "~/_state/use-app-state";
 export const Navbar = component$(() => {
-
+  const rootStore = useAppState();
   const toggleDrawer = $(() => {   
     document.getElementById("my-drawer")?.click();
+   });
+   const toggleDesignMode = $(() => {   
+    rootStore.designMode = !rootStore.designMode;
    });
   return (
     <div class="drawer drawer-end ">
@@ -31,7 +35,10 @@ export const Navbar = component$(() => {
           {/* title */}
           
           <TitleOnToolBar />
+        
          <button class="btn hidden flex-none md:block" onClick$={toggleDrawer}> <LuRocket /></button>
+          
+         <button class="btn hidden flex-none md:block" onClick$={toggleDesignMode}> <LuRocket /></button>
            {/* plus  */}
            
          
@@ -45,7 +52,7 @@ export const Navbar = component$(() => {
           </div>
           
         </div>
-        <div class="container mx-auto pt-2">
+        <div class=" m-6">
           <Slot />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContextProvider, useStore } from "@builder.io/qwik";
 import {
   QwikCityProvider,
   RouterOutlet,
@@ -8,6 +8,8 @@ import { RouterHead } from "./components/router-head/router-head";
 
 import "./global.css";
 import { ThemeScript } from "qwik-theme-toggle";
+import { AppState } from "./_state/app-state.type";
+import { APP_STATE_CONTEXT_ID } from "./_state/app-state-context-id";
 
 export default component$(() => {
   /**
@@ -16,6 +18,16 @@ export default component$(() => {
    *
    * Don't remove the `<head>` and `<body>` elements.
    */
+  const appState = useStore<AppState>({
+    mode: 'light',
+    isSidebarOpened: false,
+    featureFlags: {
+      showFluffy: import.meta.env.DEV,
+    },
+    designMode: true
+  });
+
+  useContextProvider(APP_STATE_CONTEXT_ID, appState);
 
   return (
     <QwikCityProvider>
