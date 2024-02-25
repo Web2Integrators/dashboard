@@ -7,7 +7,7 @@ export const TitleOnToolBar = component$(() => {
     <div class="mx-2 flex flex-1 gap-2">
       {/* <SiTailwindcss class="text-6xl"></SiTailwindcss> */}
       <Logo />  
-      <div class="flex-none"> <h1>Qwik Demo</h1></div>
+    
     </div>
   );
 });
