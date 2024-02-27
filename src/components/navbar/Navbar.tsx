@@ -35,6 +35,8 @@ export const Navbar = component$(() => {
           {/* title */}
           
           <TitleOnToolBar />
+
+         
         
          <button class="btn hidden flex-none md:block" onClick$={toggleDrawer}> <LuRocket /></button>
           

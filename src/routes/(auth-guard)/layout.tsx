@@ -14,9 +14,9 @@ export const onRequest: RequestHandler = (event) => {
   //auth guard
   const session: Session | null = event.sharedMap.get("session");
   console.log("session", session);
-  // if (!session || new Date(session.expires) < new Date() || session.error) {
-  //   throw event.redirect(302, `/auth/`);
-  // }
+  if (!session || new Date(session.expires) < new Date() || session.error) {
+    throw event.redirect(302, `/auth/`);
+  }
 };
 
 export default component$(() => {
