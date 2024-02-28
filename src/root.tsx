@@ -8,7 +8,7 @@ import { RouterHead } from "./components/router-head/router-head";
 
 import "./global.css";
 import { ThemeScript } from "qwik-theme-toggle";
-import { AppState } from "./_state/app-state.type";
+import type { AppState } from "./_state/app-state.type";
 import { APP_STATE_CONTEXT_ID } from "./_state/app-state-context-id";
 
 export default component$(() => {

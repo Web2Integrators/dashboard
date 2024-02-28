@@ -15,8 +15,8 @@ export const { onRequest, useAuthSession, useAuthSignin, useAuthSignout } =
     trustHost: true,
     providers: [
       Google({
-        clientId: process.env.GOOGLE_ID,
-        clientSecret: process.env.GOOGLE_SECRET,
+        clientId: env.get("GOOGLE_ID"),
+        clientSecret: env.get("GOOGLE_SECRET"),
         profile(profile: GoogleProfile) {
           return {
             id: profile.sub,
