@@ -13,7 +13,7 @@
     "build": "qwik build",
     "build.client": "vite build",
     "build.preview": "vite build --ssr src/entry.preview.tsx",
-    "build.server": "vite build -c adapters/bun/vite.config.ts",
+    "build.server": "vite build -c adapters/vercel-edge/vite.config.ts",
     "build.types": "tsc --incremental --noEmit",
     "deploy": "vercel deploy",
     "dev": "vite --mode ssr",
@@ -22,7 +22,7 @@
     "fmt.check": "prettier --check .",
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
-    "serve": "bun server/entry.bun.js",
+    
     "start": "vite --open --mode ssr",
     "qwik": "qwik"
   },
@@ -64,6 +64,7 @@
     "jsdom": "^24.0.0",
     "qwik-theme-toggle": "^1.0.9",
     "sharp": "^0.33.2",
-    "tailwindcss-debug-screens": "^2.2.1"
+    "tailwindcss-debug-screens": "^2.2.1",
+    "vite-plugin-node-polyfills": "^0.21.0"
   }
 }
