@@ -1,15 +1,15 @@
 import { component$, useSignal, useStore, useTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 //import { useAppState } from "~/_state/use-app-state";
-import * as Plot from "@observablehq/plot";
-import { JSDOM } from "jsdom";
-import { data, dataset } from "../data";
+// import * as Plot from "@observablehq/plot";
+// import { JSDOM } from "jsdom";
+//import { data, dataset } from "../data";
 export interface MyState {
   charts: Array<SVGSVGElement | HTMLElement>;
 }
 
 export default component$(() => {
-  //   {
+ 
   //     species: "Adelie",
   //     island: "Torgersen",
   //     culmen_length_mm: 39.1,
@@ -3119,7 +3119,7 @@ export default component$(() => {
   //const rootStore = useAppState();
   const noOfColumns = useSignal<string>("2");
   const noOfRows = useSignal<string>("1");
-  const { document } = new JSDOM().window;
+  // const { document } = new JSDOM().window;
 
   const hintBoxes = useSignal<Array<number>>();
   const cmpBoxes = useSignal<string[]>();
@@ -3132,57 +3132,57 @@ export default component$(() => {
     noOfRows.value = "grid-rows-12";
     hintBoxes.value = Array.from({ length: cols * rows }, (x, i) => i + 1);
 
-    cmpBoxes.value = Array.from({ length: cols * rows }, (x, i) => {
-      if (i % 2 === 0) {
-        mydata.charts.push(
-          Plot.plot({
-            marks: [
-              Plot.dot(dataset, {
-                x: (d) => d.x,
-                y: (d) => d.y,
-              }),
-            ],
-            document,
-            // width: width,
-            // height: height,
-            x: {
-              label: "X Axis",
-            },
-            y: {
-              label: "Y Axis",
-            },
-            color: {
-              range: ["steelblue"],
-            },
-          }),
-        );
-        return " Chart";
-      } else {
-        mydata.charts.push(
-          Plot.plot({
-            marks: [
-              Plot.dot(data, {
-                x: "culmen_length_mm",
-                y: "culmen_depth_mm",
-                stroke: "species",
-              }), // try changing "stroke" to "fill"
-              Plot.linearRegressionY(data, {
-                x: "culmen_length_mm",
-                y: "culmen_depth_mm",
-                stroke: "species",
-              }),
-            ],
-            document,
-            // width: width,
-            // height: height,
-            ariaLabel: "Penguin culmen dimensions",
-            ariaDescription:
-              "Scatterplot of culmen length by culmen depth for three penguin species. Linear trendlines are added to each, revealing similar positive linear trends between culmen length and depth for chinstrap, gentoo and Adelie penguins.",
-          }),
-        );
-        return "Table";
-      }
-    });
+    // cmpBoxes.value = Array.from({ length: cols * rows }, (x, i) => {
+    //   if (i % 2 === 0) {
+    //     mydata.charts.push(
+    //       Plot.plot({
+    //         marks: [
+    //           Plot.dot(dataset, {
+    //             x: (d) => d.x,
+    //             y: (d) => d.y,
+    //           }),
+    //         ],
+    //         document,
+    //         // width: width,
+    //         // height: height,
+    //         x: {
+    //           label: "X Axis",
+    //         },
+    //         y: {
+    //           label: "Y Axis",
+    //         },
+    //         color: {
+    //           range: ["steelblue"],
+    //         },
+    //       }),
+    //     );
+    //     return " Chart";
+    //   } else {
+    //     mydata.charts.push(
+    //       Plot.plot({
+    //         marks: [
+    //           Plot.dot(data, {
+    //             x: "culmen_length_mm",
+    //             y: "culmen_depth_mm",
+    //             stroke: "species",
+    //           }), // try changing "stroke" to "fill"
+    //           Plot.linearRegressionY(data, {
+    //             x: "culmen_length_mm",
+    //             y: "culmen_depth_mm",
+    //             stroke: "species",
+    //           }),
+    //         ],
+    //         document,
+    //         // width: width,
+    //         // height: height,
+    //         ariaLabel: "Penguin culmen dimensions",
+    //         ariaDescription:
+    //           "Scatterplot of culmen length by culmen depth for three penguin species. Linear trendlines are added to each, revealing similar positive linear trends between culmen length and depth for chinstrap, gentoo and Adelie penguins.",
+    //       }),
+    //     );
+    //     return "Table";
+    //   }
+    // });
   });
 
   return (
