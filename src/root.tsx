@@ -18,6 +18,7 @@ export default component$(() => {
    *
    * Don't remove the `<head>` and `<body>` elements.
    */
+  console.log('root component'  );
   const appState = useStore<AppState>({
     mode: 'light',
     isSidebarOpened: false,

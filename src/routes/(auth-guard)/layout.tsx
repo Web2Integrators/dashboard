@@ -1,5 +1,5 @@
 import type { Session } from "@auth/core/types";
-import { component$ } from "@builder.io/qwik";
+import { Slot, component$ } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import { Navbar } from "~/components/navbar/Navbar";
 
@@ -22,8 +22,8 @@ export const onRequest: RequestHandler = (event) => {
 export default component$(() => {
   return (
     <Navbar>
-     <h1>df</h1>
-      {/* <Slot /> */}
+     {/* <h1>df</h1> */}
+      <Slot />
     </Navbar>
   );
 });

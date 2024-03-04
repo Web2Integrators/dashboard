@@ -383,10 +383,10 @@ Additionally, within the `package.json`, the `build.server` script will be updat
 
 ## Production build
 
-To build the application for production, use the `build` command, this command will automatically run `yarn build.server` and `yarn build.client`:
+To build the application for production, use the `build` command, this command will automatically run `pnpm build.server` and `pnpm build.client`:
 
 ```shell
-yarn build
+pnpm build
 ```
 
 [Read the full guide here](https://github.com/BuilderIO/qwik/blob/main/starters/adapters/vercel-edge/README.md)
@@ -396,7 +396,7 @@ yarn build
 To deploy the application for development:
 
 ```shell
-yarn deploy
+pnpm deploy
 ```
 
 Notice that you might need a [Vercel account](https://docs.Vercel.com/get-started/) in order to complete this step!
@@ -406,3 +406,13 @@ Notice that you might need a [Vercel account](https://docs.Vercel.com/get-starte
 The project is ready to be deployed to Vercel. However, you will need to create a git repository and push the code to it.
 
 You can [deploy your site to Vercel](https://vercel.com/docs/concepts/deployments/overview) either via a Git provider integration or through the Vercel CLI.
+
+## Express Server
+
+This app has a minimal [Express server](https://expressjs.com/) implementation. After running a full build, you can preview the build using the command:
+
+```
+pnpm serve
+```
+
+Then visit [http://localhost:8080/](http://localhost:8080/)
