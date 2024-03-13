@@ -1,6 +1,6 @@
-export type Data = typeof mydata;
+export type Data = typeof rows;
 
-export const mydata = [
+export const rows = [
   [
     false,
     'Tagcat',

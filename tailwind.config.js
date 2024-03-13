@@ -6,8 +6,6 @@ export default {
     extend: {},
   },
   plugins: [
-    require("@tailwindcss/typography"),
-    require('tailwindcss-debug-screens'),
-    require("daisyui")
+   
   ],
 };

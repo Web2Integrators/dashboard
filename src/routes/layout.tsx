@@ -1,7 +1,7 @@
-import type { Session } from "@auth/core/types";
+
 import { Slot, component$ } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
-import { Navbar } from "~/components/navbar/Navbar";
+
 
 export const onRequest: RequestHandler = (event) => {
   event.cacheControl({
@@ -11,19 +11,14 @@ export const onRequest: RequestHandler = (event) => {
   }); // disable caching
   console.log("auth-guard");
 
-  //auth guard
-  const session: Session | null = event.sharedMap.get("session");
-  console.log("session", session);
-  if (!session || new Date(session.expires) < new Date() || session.error) {
-    throw event.redirect(302, `/auth/`);
-  }
+ 
+  
 };
 
 export default component$(() => {
   return (
-    <Navbar>
-     {/* <h1>df</h1> */}
+   
       <Slot />
-    </Navbar>
+   
   );
 });
